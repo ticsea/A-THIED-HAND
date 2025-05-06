@@ -1,49 +1,62 @@
-name: Build and then Release
+name: Build and Release
 
 on:
+  workflow_dispatch:    # 允许手动触发
   push:
-    workflow_dispatch:
     tags:
-      - 'v*'  # 当推送v开头的标签时触发
+      - 'v*'           # 标签触发规则
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions: write-all
+    permissions:
+      contents: write   # 更安全的权限范围
+      packages: write   # 如果需要发布到GitHub Packages
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
+      - name: Set up JDK
+        uses: actions/setup-java@v4  # 使用v4最新版
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'  # 启用Gradle缓存
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      - name: Grant execute permission
+        run: chmod +x gradlew
 
-    - name: Build with Gradle
-      run: ./gradlew build
+      - name: Build with Gradle
+        run: ./gradlew build --stacktrace
 
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false
+      - name: Verify JAR
+        run: |
+          if [ ! -f build/libs/*.jar ]; then
+            echo "❌ Error: No JAR file found!"
+            exit 1
+          fi
 
-    - name: Upload Release Asset
-      id: upload-release-asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build/libs/*.jar
-        asset_name: YourModName-${{ github.ref }}.jar
-        asset_content_type: application/java-archive
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}  # 更可靠的ref获取方式
+          release_name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          body: |
+            Release Notes:
+            - Version: ${{ github.ref_name }}
+            - Build Date: ${{ steps.get-date.outputs.date }}
+
+      - name: Upload Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/libs/*.jar
+          asset_name: YourMod-${GITHUB_REF_NAME}.jar  # 动态版本号
+          asset_content_type: application/java-archive
