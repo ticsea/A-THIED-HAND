@@ -1,35 +1,48 @@
-name: Build and Release
+name: Build and Release Forge Mod
 
 on:
-  workflow_dispatch:
   push:
     tags:
-      - 'v*'
+      - "v*"  # 当推送类似 v1.0.0 的标签时触发
+  workflow_dispatch:  # 可选：允许手动触发
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
         with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: 'gradle'
+          distribution: "temurin"
+          java-version: "17"
 
-      - name: Build with Gradle
-        run: |
-          chmod +x gradlew
-          ./gradlew clean build --stacktrace
-      - name: Create/Update Release
-        uses: softprops/action-gh-release@v1
+      - name: Make Gradle Wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Build Mod (Gradle)
+        run: ./gradlew clean build --stacktrace
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 自动生成的 token
         with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          files: build/libs/*.jar
-          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: v${{ env.MOD_VERSION }}
+          release_name: "${{ env.MOD_NAME }} v${{ env.MOD_VERSION }}"
+          body: "Auto-built Forge Mod release. Changelog: TODO"  # 可替换为动态生成的日志
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/libs/${{ env.MOD_NAME }}-${{ env.MOD_VERSION }}.jar  # 替换为你的 JAR 文件名
+          asset_name: "${{ env.MOD_NAME }}-${{ env.MOD_VERSION }}.jar"
+          asset_content_type: application/java-archive
