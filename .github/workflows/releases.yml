@@ -2,6 +2,7 @@ name: Build and then Release
 
 on:
   push:
+    workflow_dispatch:
     tags:
       - 'v*'  # 当推送v开头的标签时触发
 
