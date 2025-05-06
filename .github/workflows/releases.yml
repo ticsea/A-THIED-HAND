@@ -22,34 +22,15 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      - name: Grant execute permission to gradlew
-        run: chmod +x gradlew
-
       - name: Build with Gradle
         run: |
+          chmod +x gradlew
           ./gradlew clean build --stacktrace
-          if [ ! -f build/libs/*.jar ]; then
-            echo "::error::No JAR file produced!"
-            exit 1
-          fi
 
-      - name: Create Release (Force Overwrite)
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create/Update Release
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
-          body: "Automated release for ${{ github.ref_name }}"
-          overwrite: true  # 强制覆盖已存在的Release
-
-      - name: Upload JAR Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/libs/$(ls build/libs | grep .jar | head -1)
-          asset_name: YourMod-${{ github.ref_name }}.jar
-          asset_content_type: application/java-archive
+          name: Release ${{ github.ref_name }}
+          files: build/libs/*.jar
+          token: ${{ secrets.GITHUB_TOKEN }}
