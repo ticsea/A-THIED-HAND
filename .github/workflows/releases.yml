@@ -50,3 +50,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: build/libs/$(ls build/libs | grep .jar)
           asset_name: YourMod-${{ github.ref_name }}.jar
+          # test
