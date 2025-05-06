@@ -141,7 +141,6 @@ dependencies {
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-    //implementation fg.deobf(fileTree(dir: "libs", includes: ["InventoryProfilesNext-forge-1.20-1.10.14.jar"]))
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
