@@ -1,3 +1,6 @@
+// Copyright © 2025 ticsea. ALL RIGHTS RESERVED.
+// Unauthorized use, copying or modification is prohibited.
+
 package net.ticsea.quickpick;
 
 import com.mojang.logging.LogUtils;
