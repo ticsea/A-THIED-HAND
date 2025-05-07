@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Extract Mod Version
-        id: 'get version, modid'
+        id: 'read_properties'
         uses: christian-draeger/read-properties@1.1.1
         with:
           path: gradle.properties
