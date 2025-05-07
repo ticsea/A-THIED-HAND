@@ -1,4 +1,4 @@
-package net.ticsea.quickpick.handle;
+package net.ticsea.quickpick.events;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.entity.player.Player;
@@ -12,12 +12,12 @@ import net.ticsea.quickpick.Main;
 import org.slf4j.Logger;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)
-public class TransferHandle {
+public class PlayerOpenContainerEvent {
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
     @SubscribeEvent
-    public static void onContainerOpen(PlayerContainerEvent.Open event) {
+    public static void quickMoveStack(PlayerContainerEvent.Open event) {
         Player player = event.getEntity();
         AbstractContainerMenu menu = event.getContainer();
 
