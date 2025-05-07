@@ -43,4 +43,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            build/libs/${{steps.read_property.outputs.mod_id}}-${{steps.read_property.mod_version}}.jar
+            build/libs/*.jar
