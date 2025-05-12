@@ -6,6 +6,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
+import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.lwjgl.glfw.GLFW;
@@ -13,16 +14,15 @@ import org.lwjgl.glfw.GLFW;
 
 @Mod.EventBusSubscriber(modid = Main.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModKeys {
-    public static final KeyMapping MOD_ON_OFF_KEY = new KeyMapping(
+    public static final Lazy<KeyMapping> MOD_ON_OFF_KEY = Lazy.of(() ->
+            new KeyMapping(
                     "key.quickpickme.mod_on_off",
                     KeyConflictContext.IN_GAME,
                     InputConstants.Type.KEYSYM,
                     GLFW.GLFW_KEY_H,
                     "key.categories.quickpickme"
-            );
+            ));
 
     @SubscribeEvent
-    public static void registerBindings(RegisterKeyMappingsEvent event) {
-        event.register(MOD_ON_OFF_KEY);
-    }
+    public static void registerBindings(RegisterKeyMappingsEvent event) {event.register(MOD_ON_OFF_KEY.get());}
 }
