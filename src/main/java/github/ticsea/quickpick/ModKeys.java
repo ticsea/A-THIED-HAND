@@ -1,7 +1,6 @@
-package github.ticsea.quickpick.common;
+package github.ticsea.quickpick;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import github.ticsea.quickpick.Main;
 import net.minecraft.client.KeyMapping;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
@@ -23,6 +22,18 @@ public class ModKeys {
                     "key.categories.quickpickme"
             ));
 
+    public static final Lazy<KeyMapping> MOD_SCREEN_KEY = Lazy.of(() ->
+            new KeyMapping(
+                    "key.quickpickme.mod_sreen",
+                    KeyConflictContext.IN_GAME,
+                    InputConstants.Type.KEYSYM,
+                    GLFW.GLFW_KEY_H,
+                    "key.categories.quickpickme"
+            ));
+
     @SubscribeEvent
-    public static void registerBindings(RegisterKeyMappingsEvent event) {event.register(MOD_ON_OFF_KEY.get());}
+    public static void registerBindings(RegisterKeyMappingsEvent event) {
+        event.register(MOD_ON_OFF_KEY.get());
+        event.register(MOD_SCREEN_KEY.get());
+    }
 }

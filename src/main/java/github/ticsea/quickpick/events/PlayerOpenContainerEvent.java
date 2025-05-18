@@ -1,16 +1,20 @@
 package github.ticsea.quickpick.events;
 
 import com.mojang.logging.LogUtils;
+import github.ticsea.quickpick.Main;
+import github.ticsea.quickpick.gui.ModScreen;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import github.ticsea.quickpick.Main;
 import org.slf4j.Logger;
 
+import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = Main.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class PlayerOpenContainerEvent {
@@ -19,8 +23,6 @@ public class PlayerOpenContainerEvent {
 
     @SubscribeEvent
     public static void quickMoveStack(final PlayerContainerEvent.Open event) {
-        //LOGGER.debug("---运行正常---");
-
         if (!KeyTriggerEvents.isEnabled() ||
                 event.getEntity() == null ||
                 event.getEntity().level().isClientSide) return;
@@ -28,22 +30,26 @@ public class PlayerOpenContainerEvent {
         Player player = event.getEntity();
         AbstractContainerMenu menu = event.getContainer();
 
+        Set<Item> selectedItems = ModScreen.getSelectedItems();
+
         for (Slot slot : menu.slots) {
             // 跳过玩家背包槽位
-            if (slot.container instanceof net.minecraft.world.entity.player.Inventory) continue;
+            if (slot.container instanceof Inventory) continue;
 
-            ItemStack containerItems = slot.getItem();
+            ItemStack containerItem = slot.getItem();
 
-            //跳过空槽位，并匹配物品
-            if (!containerItems.isEmpty() && player.getInventory().hasAnyMatching(p ->
-                    ItemStack.isSameItemSameTags(p,containerItems))) {
-                    //转移物品
-                    menu.quickMoveStack(player, slot.index);
+            if (containerItem.isEmpty()) continue;
 
-                    if (LOGGER.isDebugEnabled()) { // 避免字符串拼接开销
-                        LOGGER.debug("转移物品: {}", containerItems.getDisplayName());
-                    }
+            boolean inBackpack = player.getInventory().hasAnyMatching(p -> ItemStack.isSameItemSameTags(p, containerItem));
+            boolean isSelected = selectedItems.contains(containerItem.getItem());
 
+            // 满足：玩家背包中有 或 GUI 选中
+            if (inBackpack || isSelected) {
+                menu.quickMoveStack(player, slot.index);
+
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("转移物品: {}", containerItem.getDisplayName());
+                }
             }
         }
     }

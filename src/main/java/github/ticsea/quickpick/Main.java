@@ -4,7 +4,7 @@
 package github.ticsea.quickpick;
 
 import com.mojang.logging.LogUtils;
-import github.ticsea.quickpick.config.ListenerConfig;
+import github.ticsea.quickpick.config.ModConfigs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -21,6 +21,8 @@ public class Main
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
+
+
     public Main(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
@@ -29,7 +31,7 @@ public class Main
         MinecraftForge.EVENT_BUS.register(this);
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        context.registerConfig(ModConfig.Type.CLIENT, ListenerConfig.INIT);
+        context.registerConfig(ModConfig.Type.CLIENT, ModConfigs.SPEC);
     }
 
 }
