@@ -2,7 +2,6 @@ package github.ticsea.quickpick.events;
 
 import com.mojang.logging.LogUtils;
 import github.ticsea.quickpick.Main;
-import github.ticsea.quickpick.gui.ModScreen;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -30,8 +29,6 @@ public class PlayerOpenContainerEvent {
         Player player = event.getEntity();
         AbstractContainerMenu menu = event.getContainer();
 
-        Set<Item> selectedItems = ModScreen.getSelectedItems();
-
         for (Slot slot : menu.slots) {
             // 跳过玩家背包槽位
             if (slot.container instanceof Inventory) continue;
@@ -41,10 +38,9 @@ public class PlayerOpenContainerEvent {
             if (containerItem.isEmpty()) continue;
 
             boolean inBackpack = player.getInventory().hasAnyMatching(p -> ItemStack.isSameItemSameTags(p, containerItem));
-            boolean isSelected = selectedItems.contains(containerItem.getItem());
 
-            // 满足：玩家背包中有 或 GUI 选中
-            if (inBackpack || isSelected) {
+            // 满足：玩家背包中有
+            if (inBackpack) {
                 menu.quickMoveStack(player, slot.index);
 
                 if (LOGGER.isDebugEnabled()) {

@@ -4,7 +4,6 @@
 package github.ticsea.quickpick;
 
 import com.mojang.logging.LogUtils;
-import github.ticsea.quickpick.config.ModConfigs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -31,7 +30,7 @@ public class Main
         MinecraftForge.EVENT_BUS.register(this);
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        context.registerConfig(ModConfig.Type.CLIENT, ModConfigs.SPEC);
+        context.registerConfig(ModConfig.Type.CLIENT, github.ticsea.quickpick.config.ModConfig.CONFIG);
     }
 
 }
