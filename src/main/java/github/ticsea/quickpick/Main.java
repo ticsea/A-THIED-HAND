@@ -13,18 +13,12 @@ import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Main.MODID)
-public class Main
-{
+public class Main {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "quickpickme";
-    // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
 
-
-
-    public Main(FMLJavaModLoadingContext context)
-    {
-        IEventBus modEventBus = context.getModEventBus();
+    public Main(FMLJavaModLoadingContext context) {
+//        IEventBus modEventBus = context.getModEventBus();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

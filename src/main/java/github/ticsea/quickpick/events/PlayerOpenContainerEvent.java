@@ -18,34 +18,43 @@ import java.util.Set;
 @Mod.EventBusSubscriber(modid = Main.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class PlayerOpenContainerEvent {
 
-    private static final Logger LOGGER = LogUtils.getLogger();
+//    private static final Logger LOGGER = LogUtils.getLogger();
 
     @SubscribeEvent
     public static void quickMoveStack(final PlayerContainerEvent.Open event) {
         if (!KeyTriggerEvents.isEnabled() ||
-                event.getEntity() == null ||
-                event.getEntity().level().isClientSide) return;
+                event.getEntity()==null ||
+                event.getEntity().level().isClientSide) {
+            return;
+        }
 
         Player player = event.getEntity();
         AbstractContainerMenu menu = event.getContainer();
 
+        moveItem(menu, player);
+    }
+
+    private static void moveItem(AbstractContainerMenu menu, Player player) {
         for (Slot slot : menu.slots) {
-            // 跳过玩家背包槽位
+            // 过滤玩家背包槽位
             if (slot.container instanceof Inventory) continue;
 
+//          容器里的item
             ItemStack containerItem = slot.getItem();
+            if (containerItem.isEmpty()) continue; //过滤空槽位
 
-            if (containerItem.isEmpty()) continue;
-
+//          匹配物品，对比容器与背包的item
             boolean inBackpack = player.getInventory().hasAnyMatching(p -> ItemStack.isSameItemSameTags(p, containerItem));
 
-            // 满足：玩家背包中有
+            // 核心：执行转移
             if (inBackpack) {
                 menu.quickMoveStack(player, slot.index);
 
+/*
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.debug("转移物品: {}", containerItem.getDisplayName());
                 }
+*/
             }
         }
     }

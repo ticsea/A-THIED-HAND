@@ -13,6 +13,8 @@ import org.lwjgl.glfw.GLFW;
 
 @Mod.EventBusSubscriber(modid = Main.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModKeys {
+
+    //  mod开关按键
     public static final Lazy<KeyMapping> MOD_ON_OFF_KEY = Lazy.of(() ->
             new KeyMapping(
                     "key.quickpickme.mod_on_off",
@@ -21,7 +23,7 @@ public class ModKeys {
                     GLFW.GLFW_KEY_H,
                     "key.categories.quickpickme"
             ));
-
+    //  mod的GUI打开按键
     public static final Lazy<KeyMapping> MOD_SCREEN_KEY = Lazy.of(() ->
             new KeyMapping(
                     "key.quickpickme.mod_sreen",
@@ -31,6 +33,7 @@ public class ModKeys {
                     "key.categories.quickpickme"
             ));
 
+    //  注册按键到游戏
     @SubscribeEvent
     public static void registerBindings(RegisterKeyMappingsEvent event) {
         event.register(MOD_ON_OFF_KEY.get());
