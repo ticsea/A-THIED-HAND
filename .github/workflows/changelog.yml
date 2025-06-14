@@ -8,6 +8,8 @@ on:
 
 jobs:
   changelog:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,11 +19,11 @@ jobs:
 
       - name: Generate changelog
         id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
+        uses: TriPSs/conventional-changelog-action@v6.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           output-file: CHANGELOG.md
-          skip-version-file: true
+          skip-version-file: false
           skip-commit: false
           tag-prefix: "v"
 
