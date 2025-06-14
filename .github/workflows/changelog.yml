@@ -3,7 +3,8 @@ name: Generate Changelog
 on:
   push:
     tags:
-      - 'v*.*.*'  # 例如 v1.0.0 这样的 tag
+      - 'v'  # 例如 v1.0.0 这样的 tag
+  workflow_dispatch:
 
 jobs:
   changelog:
@@ -11,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Generate changelog
         id: changelog
