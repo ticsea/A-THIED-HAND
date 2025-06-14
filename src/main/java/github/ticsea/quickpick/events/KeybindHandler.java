@@ -1,30 +1,21 @@
 package github.ticsea.quickpick.events;
 
-import github.ticsea.quickpick.Main;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import static github.ticsea.quickpick.ModKeys.MOD_ON_OFF_KEY;
+import static github.ticsea.quickpick.ModKeybind.MOD_TOGGLE_KEY;
 import static github.ticsea.quickpick.config.ModConfig.MOD_TOGGLE;
 
-
-@Mod.EventBusSubscriber(modid = Main.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
-public class KeyTriggerEvents {
+public class KeybindHandler {
     private static final Component MSGTRUE = Component.literal("Quick Pick: ON");
     private static final Component MSGFALSE = Component.literal("Quick Pick: OFF");
     private static long showMsgUntilTick = 0; // 到哪个 tick 前显示
     private static final int DURATION = 60;  // 显示时长，单位 tick（60 = 3 秒左右）
 
-
-    @SubscribeEvent
     public static void onKeyInput(TickEvent.ClientTickEvent event) {
-        if (event.phase==TickEvent.Phase.END && MOD_ON_OFF_KEY.get().consumeClick()) {
-
+        if (event.phase==TickEvent.Phase.END && MOD_TOGGLE_KEY.get().consumeClick()) {
             toggleState();
 
             assert Minecraft.getInstance().level!=null;
@@ -32,7 +23,6 @@ public class KeyTriggerEvents {
         }
     }
 
-    @SubscribeEvent
     public static void renderToggle(RenderGuiOverlayEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
 
@@ -46,7 +36,6 @@ public class KeyTriggerEvents {
         int x = width / 2 - 22;
         int y = height - 56;
         Component msg = isEnabled() ? MSGTRUE:MSGFALSE;
-
         event.getGuiGraphics().drawString(font, msg, x, y, 0xffffff, true);
     }
 

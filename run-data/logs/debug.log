@@ -343,7 +343,7 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 [115月2025 08:17:53.060] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file quickpickme-common.toml for quickpickme tracking
 [115月2025 08:17:53.060] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for quickpickme
 [115月2025 08:17:53.063] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing github.ticsea.quickpick.Config to MOD
-[115月2025 08:17:53.066] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing github.ticsea.quickpick.events.PlayerOpenContainerEvent to FORGE
+[115月2025 08:17:53.066] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing github.ticsea.quickpick.events.PlayerOpenContainerHandler to FORGE
 [115月2025 08:17:53.068] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing github.ticsea.quickpick.Main$ClientModEvents to MOD
 [115月2025 08:17:53.078] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-client.toml for forge tracking
 [115月2025 08:17:53.078] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-server.toml for forge tracking
