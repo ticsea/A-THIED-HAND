@@ -6,6 +6,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
+import net.p3pp3rf1y.sophisticatedbackpacks.common.gui.BackpackContainer;
 
 public class PlayerOpenContainerHandler {
 
@@ -20,6 +21,7 @@ public class PlayerOpenContainerHandler {
 
         Player player = event.getEntity();
         AbstractContainerMenu menu = event.getContainer();
+        if (menu instanceof BackpackContainer) return;
         moveItem(menu, player);
     }
 

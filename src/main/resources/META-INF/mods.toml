@@ -83,13 +83,13 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId = "sophisticatedbackpacks"
     mandatory = false
-    versionRange = "[3.23.19.1251,)"
+    versionRange = "[3.20.10.1109,)"
     ordering = "AFTER"
     side = "BOTH"
 
 [[dependencies.${mod_id}]]
 modId = "sophisticatedcore"
 mandatory = false
-versionRange = "[1.2.69.1005,)"
+versionRange = "[0.6.26.668,)"
 ordering = "AFTER"
 side = "BOTH"
