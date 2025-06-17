@@ -1,5 +1,8 @@
 package github.ticsea.quickpick.events;
 
+import com.github.tartaricacid.touhoulittlemaid.inventory.container.MaidMainContainer;
+import com.mojang.logging.LogUtils;
+import github.ticsea.quickpick.config.ModConfig;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -7,10 +10,11 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.p3pp3rf1y.sophisticatedbackpacks.common.gui.BackpackContainer;
+import org.slf4j.Logger;
 
 public class PlayerOpenContainerHandler {
 
-///*//    private static final Logger LOGGER = LogUtils.getLogger();*/
+    private static final Logger LOGGER = LogUtils.getLogger();
 
     public static void onPlayerOpenChest(final PlayerContainerEvent.Open event) {
         if (!KeybindHandler.isEnabled() ||
@@ -21,8 +25,19 @@ public class PlayerOpenContainerHandler {
 
         Player player = event.getEntity();
         AbstractContainerMenu menu = event.getContainer();
-        if (menu instanceof BackpackContainer) return;
-        moveItem(menu, player);
+        if (menu instanceof BackpackContainer) {
+            if (ModConfig.getBackpackStatus()) {
+                moveItem(menu, player);
+                LOGGER.debug("Debug:backpackstatus " + ModConfig.getBackpackStatus());
+            }
+        } else if (menu instanceof MaidMainContainer) {
+            if (ModConfig.getLittleMaidStatus()) {
+                moveItem(menu, player);
+                LOGGER.debug("Debug:littlemaidstatus " + ModConfig.getLittleMaidStatus());
+            }
+        } else {
+            moveItem(menu, player);
+        }
     }
 
     private static void moveItem(AbstractContainerMenu menu, Player player) {

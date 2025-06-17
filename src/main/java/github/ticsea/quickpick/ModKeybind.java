@@ -8,8 +8,7 @@ import net.minecraftforge.common.util.Lazy;
 import org.lwjgl.glfw.GLFW;
 
 public class ModKeybind {
-    public static final Lazy<KeyMapping> MOD_TOGGLE_KEY;
-    public static final Lazy<KeyMapping> MOD_SCREEN_KEY;
+    public static final Lazy<KeyMapping> MOD_TOGGLE_KEY, MOD_SCREEN_KEY;
 
     public static void registerKeybind(RegisterKeyMappingsEvent event) {
         event.register(MOD_TOGGLE_KEY.get());
