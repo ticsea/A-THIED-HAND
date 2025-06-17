@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.event.TickEvent;
 import static github.ticsea.quickpick.ModKeybind.MOD_TOGGLE_KEY;
-import static github.ticsea.quickpick.config.ModConfig.MOD_TOGGLE;
+import static github.ticsea.quickpick.config.ModConfig.MODSTATUS_TOGGLE;
 
 public class KeybindHandler {
     private static final Component MSGTRUE = Component.literal("Quick Pick: ON");
@@ -40,10 +40,10 @@ public class KeybindHandler {
     }
 
     private static void toggleState() {
-        MOD_TOGGLE.set(!MOD_TOGGLE.get());
+        MODSTATUS_TOGGLE.set(!MODSTATUS_TOGGLE.get());
     }
 
     public static boolean isEnabled() {
-        return MOD_TOGGLE.get();
+        return MODSTATUS_TOGGLE.get();
     }
 }
