@@ -27,6 +27,7 @@ public class PlayerOpenContainerHandler {
 
         Player player = event.getEntity();
         AbstractContainerMenu menu = event.getContainer();
+
         if (menu instanceof WorkbenchContainer) return;
         if (menu instanceof BackpackContainer) {
             if (ModConfig.getBackpackStatus()) {
