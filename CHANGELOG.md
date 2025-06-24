@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/ticsea/quickpickme/compare/v0.2.0...v0.2.1) (2025-06-24)
+
+
+### Bug Fixes
+
+* **playerOpenContainer:** fix item automatically move when open tetra's craft table. ([fadee27](https://github.com/ticsea/quickpickme/commit/fadee274424e5d64d85eeab158e673ddc1ac5b8b))
+
+
+
 # [0.2.0](https://github.com/ticsea/quickpickme/compare/v0.1.0...v0.2.0) (2025-06-24)
 
 
@@ -32,10 +41,6 @@
 
 
 ## [1.3.1](https://github.com/ticsea/quickpickme/compare/v1.3.0...v1.3.1) (2025-05-25)
-
-
-
-# [1.3.0](https://github.com/ticsea/quickpickme/compare/v1.2.0...v1.3.0) (2025-05-25)
 
 
 
