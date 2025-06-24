@@ -11,6 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.p3pp3rf1y.sophisticatedbackpacks.common.gui.BackpackContainer;
 import org.slf4j.Logger;
+import se.mickelus.tetra.blocks.forged.container.ForgedContainerMenu;
+import se.mickelus.tetra.blocks.workbench.WorkbenchContainer;
 
 public class PlayerOpenContainerHandler {
 
@@ -25,6 +27,7 @@ public class PlayerOpenContainerHandler {
 
         Player player = event.getEntity();
         AbstractContainerMenu menu = event.getContainer();
+        if (menu instanceof WorkbenchContainer) return;
         if (menu instanceof BackpackContainer) {
             if (ModConfig.getBackpackStatus()) {
                 moveItem(menu, player);
@@ -49,7 +52,6 @@ public class PlayerOpenContainerHandler {
 
             boolean matching = player.getInventory().hasAnyMatching(
                     p -> ItemStack.isSameItemSameTags(p, containerItem));
-            // 核心：执行转移
             if (matching) {
                 menu.quickMoveStack(player, slot.index);
             }
