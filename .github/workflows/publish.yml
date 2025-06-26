@@ -5,6 +5,12 @@ on:
     tags:
       - "v*"  # 当推送类似 v1.0.0 的标签时触发
   workflow_dispatch:  # 可选：允许手动触发
+    inputs:
+      name:
+        description: manually trigger
+        default: "press to trigger"
+        required: true
+        type: string
 
 jobs:
   Publish-Mod:
