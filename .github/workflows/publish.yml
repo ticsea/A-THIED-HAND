@@ -46,10 +46,11 @@ jobs:
       - name: Publish to Curseforge and Modrinth
         uses: Kir-Antipov/mc-publish@v3.3
         with:
+
           files: build/libs/*.jar
           # Only include this section if you wish to publish
           # your assets on Modrinth.
-          modrinth-id: hNnseQ1s
+          modrinth-id: o2A6wa7q
           modrinth-token: ${{ secrets.PUBLISH_MODRINTH_TOKEN }}
 
           # Only include this section if you wish to publish
