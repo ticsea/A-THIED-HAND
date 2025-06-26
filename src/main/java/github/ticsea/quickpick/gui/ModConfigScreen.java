@@ -1,14 +1,16 @@
 package github.ticsea.quickpick.gui;
 
-import github.ticsea.quickpick.config.ModConfig;
+import github.ticsea.quickpick.util.ConfigHelper;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import org.jetbrains.annotations.NotNull;
 
 public class ModConfigScreen extends Screen {
     private final Screen PARENTSCREEN;
-    private Button littleMaidButton, backpackButton;
+    private Button littleMaidButton;
+    private Button backpackButton;
 
     public ModConfigScreen(Component pTitle, Screen parent) {
         super(pTitle);
@@ -18,27 +20,27 @@ public class ModConfigScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        this.addRenderableWidget(
-                Button.builder(Component.literal("Back"), b -> this.onClose())
-                        .pos(width / 2 - 100, height - 30)
-                        .size(200, 20)
-                        .build()
-        );
 
-        littleMaidButton = Button.builder(Component.literal("Touhou Little Maid: " + status(ModConfig.getLittleMaidStatus())),
+        Button backButton = Button.builder(Component.literal("Back"), b -> this.onClose())
+                .pos(width / 2 - 100, height - 30)
+                .size(200, 20)
+                .build();
+        this.addRenderableWidget(backButton);
+
+        littleMaidButton = Button.builder(Component.literal("Touhou Little Maid: " + state(ConfigHelper.isLittleMaidEnable())),
                         b -> {
-                            ModConfig.littleMaidToggle();
-                            littleMaidButton.setMessage(Component.literal("Touhou Little Maid: " + status(ModConfig.getLittleMaidStatus())));
+                            ConfigHelper.littleMaidToggle();
+                            littleMaidButton.setMessage(Component.literal("Touhou Little Maid: " + state(ConfigHelper.isLittleMaidEnable())));
                         })
                 .pos(width / 2 - 50, height - 140)
                 .size(100, 20)
                 .build();
-        addRenderableWidget(littleMaidButton);
+        this.addRenderableWidget(littleMaidButton);
 
-        backpackButton = Button.builder(Component.literal("backpack: " + status(ModConfig.getBackpackStatus())),
+        backpackButton = Button.builder(Component.literal("backpack: " + state(ConfigHelper.isBackpackEnable())),
                         b -> {
-                            ModConfig.backpackToggle();
-                            backpackButton.setMessage(Component.literal("backpack: " + status(ModConfig.getBackpackStatus())));
+                            ConfigHelper.backpackToggle();
+                            backpackButton.setMessage(Component.literal("backpack: " + state(ConfigHelper.isBackpackEnable())));
                         })
                 .pos(width / 2 - 50, height - 100)
                 .size(100, 20)
@@ -47,7 +49,7 @@ public class ModConfigScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(@NotNull GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderDirtBackground(pGuiGraphics);
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
     }
@@ -59,9 +61,7 @@ public class ModConfigScreen extends Screen {
         }
     }
 
-    private String status(boolean status) {
-        return status? "ON" : "OFF";
+    private String state(boolean state) {
+        return state ? "ON":"OFF";
     }
-
-
 }
