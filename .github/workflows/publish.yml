@@ -10,7 +10,7 @@ on:
   workflow_dispatch:  # 可选：允许手动触发
     inputs:
       name:
-        description: manually trigger
+        description: "manually trigger"
         default: "press to run this action"
         required: true
         type: string
