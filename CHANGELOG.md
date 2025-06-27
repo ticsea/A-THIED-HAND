@@ -1,3 +1,13 @@
+# [0.4.0](https://github.com/ticsea/quickpickme/compare/v1.4.1...v0.4.0) (2025-06-27)
+
+
+### Features
+
+* an action for automatically publish mod to github curseforge modrinth ([e5a2dc7](https://github.com/ticsea/quickpickme/commit/e5a2dc7f8df09936164a4a761bc7a98931a8fb27))
+* an action for automatically publish mod to github curseforge modrinth ([3daf3fa](https://github.com/ticsea/quickpickme/commit/3daf3fa376210774d7a7b5c3d50517dd4e7a20f7))
+
+
+
 # [0.3.0](https://github.com/ticsea/quickpickme/compare/v0.2.1...v0.3.0) (2025-06-26)
 
 
@@ -27,25 +37,6 @@
 ### Features
 
 * add support for backpack and littlemaid containers with toggleable auto-move ([aeab7de](https://github.com/ticsea/quickpickme/commit/aeab7de1e1a4803e08e5d8a1f334583bf6c5ba12))
-
-
-
-# [0.1.0](https://github.com/ticsea/quickpickme/compare/v1.4.0...v0.1.0) (2025-06-17)
-
-
-
-# [1.4.0](https://github.com/ticsea/quickpickme/compare/v1.3.1...v1.4.0) (2025-06-17)
-
-
-### Bug Fixes
-
-* fix issue where items were moved when opening Sophisticated Backpacks ([0b0d546](https://github.com/ticsea/quickpickme/commit/0b0d546d937a74838aef64c3c97039bdf55d3467))
-
-
-### Features
-
-* add a hint about mod toggle ([#1](https://github.com/ticsea/quickpickme/issues/1)) ([6dc43ed](https://github.com/ticsea/quickpickme/commit/6dc43ed6e09bc98640c1ace94d764720a066f270))
-* add support for backpack and littlemaid containers with toggleable auto-move ([02e93c9](https://github.com/ticsea/quickpickme/commit/02e93c93f5ac98a22a907c536f4a22c74a8cdf5d))
 
 
 
