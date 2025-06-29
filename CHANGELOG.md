@@ -1,3 +1,12 @@
+## [0.4.3](https://github.com/ticsea/quickpickme/compare/v0.4.2...v0.4.3) (2025-06-29)
+
+
+### Bug Fixes
+
+* **publish.yml:** specify the mod id about mod platform ([c34222c](https://github.com/ticsea/quickpickme/commit/c34222c40c6edab4fcae5101053017a240e1ab48))
+
+
+
 ## [0.4.2](https://github.com/ticsea/quickpickme/compare/v0.4.1...v0.4.2) (2025-06-29)
 
 
