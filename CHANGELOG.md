@@ -1,3 +1,12 @@
+## [0.4.5](https://github.com/ticsea/quickpickme/compare/v0.4.4...v0.4.5) (2025-06-29)
+
+
+### Bug Fixes
+
+* **publish.yml:** limit what mc-version should be publish ([2518c17](https://github.com/ticsea/quickpickme/commit/2518c1752d1e6319f7061d04487d88aa613afdda))
+
+
+
 ## [0.4.4](https://github.com/ticsea/quickpickme/compare/v0.4.3...v0.4.4) (2025-06-29)
 
 
@@ -26,15 +35,6 @@
 
 
 ## [0.4.1](https://github.com/ticsea/quickpickme/compare/v1.4.2...v0.4.1) (2025-06-29)
-
-
-
-## [1.4.2](https://github.com/ticsea/quickpickme/compare/v0.4.0...v1.4.2) (2025-06-29)
-
-
-### Bug Fixes
-
-* Crush about can not find class ([058be97](https://github.com/ticsea/quickpickme/commit/058be9716bf3f3a947ca8b70c21a1734ff1bba66))
 
 
 
