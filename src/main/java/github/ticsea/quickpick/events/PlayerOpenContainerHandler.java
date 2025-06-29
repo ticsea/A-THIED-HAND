@@ -1,6 +1,5 @@
 package github.ticsea.quickpick.events;
 
-import com.github.tartaricacid.touhoulittlemaid.inventory.container.MaidMainContainer;
 import com.mojang.logging.LogUtils;
 import github.ticsea.quickpick.util.ConfigHelper;
 import net.minecraft.world.entity.player.Inventory;
@@ -9,12 +8,12 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
-import net.p3pp3rf1y.sophisticatedbackpacks.common.gui.BackpackContainer;
 import org.slf4j.Logger;
-import se.mickelus.tetra.blocks.workbench.WorkbenchContainer;
 
 public class PlayerOpenContainerHandler {
-
+    private static final String BAPCKCMENU = "net.p3pp3rf1y.sophisticatedbackpacks.common.gui.BackpackContainer";
+    private static final String TOUHOUMAIDMENU = "com.github.tartaricacid.touhoulittlemaid.inventory.container.MaidMainContainer";
+    private static final String TETRAMENU = "se.mickelus.tetra.blocks.workbench.WorkbenchContainer";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public static void onPlayerOpenChest(final PlayerContainerEvent.Open event) {
@@ -26,19 +25,26 @@ public class PlayerOpenContainerHandler {
 
         Player player = event.getEntity();
         AbstractContainerMenu menu = event.getContainer();
-        if (menu instanceof WorkbenchContainer) return;
-        if (menu instanceof BackpackContainer) {
+        if (isInstanceOf(menu, TETRAMENU)) return;
+        if (isInstanceOf(menu, BAPCKCMENU)) {
             if (ConfigHelper.isBackpackEnable()) {
                 moveItem(menu, player);
-//                LOGGER.debug("Debug:backpackstatus {}", ModConfig.getBackpackState());
             }
-        } else if (menu instanceof MaidMainContainer) {
+        } else if (isInstanceOf(menu, TOUHOUMAIDMENU)) {
             if (ConfigHelper.isLittleMaidEnable()) {
                 moveItem(menu, player);
-//                LOGGER.debug("Debug:littlemaidstatus {}", ModConfig.getLittleMaidState());
             }
         } else {
             moveItem(menu, player);
+        }
+    }
+
+    private static boolean isInstanceOf(AbstractContainerMenu menu, String className) {
+        try {
+            Class<?> clazz = Class.forName(className);
+            return clazz.isInstance(menu);
+        } catch (ClassNotFoundException e) {
+            return false;
         }
     }
 
