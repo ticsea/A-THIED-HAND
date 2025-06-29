@@ -33,8 +33,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      #      - name: Grant execution authority
-      #        run: chmod +x ./gradlew
+      - name: Grant execution authority
+        run: chmod +x ./gradlew
 
       #      - name: Extract Mod Version
       #        id: 'read_properties'
