@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/ticsea/quickpickme/compare/v0.4.0...v0.4.1) (2025-06-29)
+
+
+### Bug Fixes
+
+* Crush about can not find class ([058be97](https://github.com/ticsea/quickpickme/commit/058be9716bf3f3a947ca8b70c21a1734ff1bba66))
+
+
+
 # [0.4.0](https://github.com/ticsea/quickpickme/compare/v1.4.1...v0.4.0) (2025-06-27)
 
 
@@ -23,20 +32,6 @@
 ### Bug Fixes
 
 * **playerOpenContainer:** fix item automatically move when open tetra's craft table. ([fadee27](https://github.com/ticsea/quickpickme/commit/fadee274424e5d64d85eeab158e673ddc1ac5b8b))
-
-
-
-# [0.2.0](https://github.com/ticsea/quickpickme/compare/v0.1.0...v0.2.0) (2025-06-24)
-
-
-### Bug Fixes
-
-* **playerOpenContainer:** fix item automatically move when open tetra's craft table. ([22973fc](https://github.com/ticsea/quickpickme/commit/22973fc832f1d5a6e0edde502558b7e926535d42))
-
-
-### Features
-
-* add support for backpack and littlemaid containers with toggleable auto-move ([aeab7de](https://github.com/ticsea/quickpickme/commit/aeab7de1e1a4803e08e5d8a1f334583bf6c5ba12))
 
 
 
