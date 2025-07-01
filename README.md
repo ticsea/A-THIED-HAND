@@ -1,7 +1,7 @@
 <div aligh="center">
   <img width="300" alt="quicipickme log" src="https://github.com/ticsea/quickpickme/blob/main/src/main/resources/assets/quickpick.png" />
    <h1 style="margin-top: 0">Quick Pick Me</h1>
-  <p>QuickPickme is a mod automatically trasfer item into player's inventory.</p>
+  <p>QuickPick streamlines your Minecraft gameplay by reducing the hassle of manually transferring items between containers and your inventory. Whenever you open any container, the mod scans for items that match what you already carry and quickly moves them into your inventory. This saves you time and keeps your items organized, so you can focus more on adventuring and crafting.</p>
 
 [![CurseForge Downloads](https://img.shields.io/curseforge/dt/1288509?logo=CurseForge)](https://www.curseforge.com/minecraft/mc-mods/quickpickme)
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/quickpickme?logo=Modrinth)](https://modrinth.com/mod/quickpickme)
@@ -15,7 +15,7 @@
 **——好多宝箱，不想一个个打开一个个点物品。好累好累，我！要！解放！！！脑~汁！AAAA**  
 
 #### **🔹 产品定位**  
-QuickPick 是一款专注于 **优化探索体验**的mod，旨在通过极简交互提升玩家的探索体验。  
+QuickPick 是一款专注于 **优化探索体验**的mod，通过减少在容器和背包之间手动转移物品的麻烦，简化了你的 Minecraft 游戏体验。每当你打开任何容器时，该模组会扫描与你已携带物品匹配的物品，并迅速将它们转移到你的背包中。这能为你节省时间并保持物品的整洁，让你能更专注于冒险和制作。。  
 
 #### **🔹 核心功能**  
 - **自动转移物品**：打开箱子会自动转移已存在于玩家背包的物品。
@@ -33,7 +33,7 @@ QuickPick 是一款专注于 **优化探索体验**的mod，旨在通过极简�
 **——So many chests, I don’t want to open them one by one and pick items one by one. It's exhausting! I! Want! To be free!!! Save my brain juice! AAAA**
 
 #### **🔹 Product Positioning**  
-QuickPick is a mod focused on **enhancing the exploration experience**, aiming to improve gameplay with minimal interaction.  
+QuickPick is a mod focused on **enhancing the exploration experience**, QuickPick streamlines your Minecraft gameplay by reducing the hassle of manually transferring items between containers and your inventory. Whenever you open any container, the mod scans for items that match what you already carry and quickly moves them into your inventory. This saves you time and keeps your items organized, so you can focus more on adventuring and crafting. 
 
 #### **🔹 Core Features**  
 - **Auto-transfer items**: When opening a chest, items already present in your inventory will be automatically transferred.
