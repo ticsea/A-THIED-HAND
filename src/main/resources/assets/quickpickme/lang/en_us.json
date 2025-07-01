@@ -1,6 +1,11 @@
 {
-  "key.quickpickme.mod_on_off": "Mod On_Off",
-
-  "key.categories.quickpickme": "Quick Pick",
-  "key.quickpickme.mod_sreen": "openScreen"
+  "key.categories.quickpickme": "Quick Pick Me",
+  "key.quickpickme.toggle_mod": "Toggle QuickPickMe",
+  "gui.quickpickme.back": "Back",
+  "gui.quickpickme.touhou_little_maid": "Touhou Little Maid",
+  "gui.quickpickme.backpack": "Sophisticated Backpack",
+  "gui.quickpickme.state.on": "ON",
+  "gui.quickpickme.state.off": "OFF",
+  "quickpickme.toggle.on": "Quick Pick: ON",
+  "quickpickme.toggle.off": "Quick Pick: OFF"
 }

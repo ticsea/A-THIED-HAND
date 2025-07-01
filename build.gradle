@@ -138,11 +138,6 @@ repositories {
             includeGroup "curse.maven"
         }
     }
-
-    maven {
-        name = "SpongePowered"
-        url = "https://repo.spongepowered.org/repository/maven-public/"
-    }
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 

@@ -1,13 +1,13 @@
 // Copyright © 2025 ticsea. ALL RIGHTS RESERVED.
 // Unauthorized use, copying or modification is prohibited.
 
-package github.ticsea.quickpick;
+package github.ticsea.quickpickme;
 
-import static github.ticsea.quickpick.config.ModConfig.CONFIG;
+import static github.ticsea.quickpickme.config.ModConfig.CONFIG;
 
-import github.ticsea.quickpick.events.KeybindHandler;
-import github.ticsea.quickpick.events.PlayerOpenContainerHandler;
-import github.ticsea.quickpick.gui.ModConfigScreen;
+import github.ticsea.quickpickme.events.KeybindHandler;
+import github.ticsea.quickpickme.events.PlayerOpenContainerHandler;
+import github.ticsea.quickpickme.gui.ModConfigScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.ConfigScreenHandler;
@@ -18,21 +18,21 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
-@Mod(Main.MODID)
-public class Main {
+@Mod(QuickPickMe.MODID)
+public class QuickPickMe {
     public static final String MODID = "quickpickme";
 
-    public Main(FMLJavaModLoadingContext context) {
+    public QuickPickMe(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
         IEventBus forgeEvenBus = MinecraftForge.EVENT_BUS;
         if (FMLEnvironment.dist==Dist.CLIENT) {
             modEventBus.addListener(ModKeybind::registerKeybind);
             forgeEvenBus.addListener(KeybindHandler::onKeyInput);
-            forgeEvenBus.addListener(KeybindHandler::renderToggle);
+            forgeEvenBus.addListener(KeybindHandler::renderToggleMessage);
 
             buildConfigScreen(context);
         }
-        forgeEvenBus.addListener(PlayerOpenContainerHandler::onPlayerOpenChest);
+        forgeEvenBus.addListener(PlayerOpenContainerHandler::onPlayerOpenContainer);
 
         context.registerConfig(ModConfig.Type.CLIENT, CONFIG);
     }
@@ -45,5 +45,4 @@ public class Main {
                 )
         );
     }
-
 }

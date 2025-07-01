@@ -1,0 +1,11 @@
+{
+  "key.categories.quickpickme": "快速拾取",
+  "key.quickpickme.toggle_mod": "开关",
+  "gui.quickpickme.back": "返回",
+  "gui.quickpickme.touhou_little_maid": "车万女仆",
+  "gui.quickpickme.backpack": "精妙背包",
+  "gui.quickpickme.state.on": "启用",
+  "gui.quickpickme.state.off": "关闭",
+  "quickpickme.toggle.on": "自动拾取：开启",
+  "quickpickme.toggle.off": "自动拾取：关闭"
+}
