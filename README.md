@@ -11,14 +11,14 @@
 ---
 <details open>
 <summary>中文</summary>
-### **QuickPickme 简介**  
-**——好多宝箱，不想一个个打开一个个点物品。好累好累，我！要！解放！！！脑~汁！AAAA**  
+ QuickPickme 
+ ——懒人体验优化，解放大脑。
 
 #### **🔹 产品定位**  
-QuickPick 是一款专注于 **优化探索体验**的mod，通过减少在容器和背包之间手动转移物品的麻烦，简化了你的 Minecraft 游戏体验。每当你打开任何容器时，该模组会扫描与你已携带物品匹配的物品，并迅速将它们转移到你的背包中。这能为你节省时间并保持物品的整洁，让你能更专注于冒险和制作。。  
+ QuickPickMe 是一款专注于 **优化探索体验**的mod，通过减少在容器和背包之间**手动**转移物品的麻烦，简化了你的 Minecraft 游戏体验。每当你打开任何容器时，该模组会扫描与你已携带物品匹配的物品，并迅速将它们转移到你的背包中。这能为你节省时间并保持物品的整洁，让你能更专注于冒险与战斗。  
 
 #### **🔹 核心功能**  
-- **自动转移物品**：打开箱子会自动转移已存在于玩家背包的物品。
+- **宝箱探索优化**：与宝箱交互会自动地拾取匹配的战利品。
 
 #### **🔹 按键**
 - 使用 <kbd>H</kbd>控制mod启用与关闭
@@ -29,14 +29,14 @@ QuickPick 是一款专注于 **优化探索体验**的mod，通过减少在容�
 
 <details>
 <summary>EN</summary>
-  ### **QuickPick Introduction**  
-**——So many chests, I don’t want to open them one by one and pick items one by one. It's exhausting! I! Want! To be free!!! Save my brain juice! AAAA**
+ QuickPickMe 
+  --Optimize the lazy experience and free the brain
 
 #### **🔹 Product Positioning**  
-QuickPick is a mod focused on **enhancing the exploration experience**, QuickPick streamlines your Minecraft gameplay by reducing the hassle of manually transferring items between containers and your inventory. Whenever you open any container, the mod scans for items that match what you already carry and quickly moves them into your inventory. This saves you time and keeps your items organized, so you can focus more on adventuring and crafting. 
+QuickPick is a mod focused on **enhancing the exploration experience**, QuickPick streamlines your Minecraft gameplay by reducing the hassle of manually transferring items between containers and your inventory. Whenever you open any container, the mod scans for items that match what you already carry and quickly moves them into your inventory. This saves you time and keeps your items organized, so you can focus more on adventuring and fighting. 
 
 #### **🔹 Core Features**  
-- **Auto-transfer items**: When opening a chest, items already present in your inventory will be automatically transferred.
+- **Optimize Treasure Chest Exploration**: When opening a chest, items already present in your inventory will be automatically transferred.
 
 #### **🔹 Keybind**  
 - Use <kbd>H</kbd> to toggle the mod on and off.
