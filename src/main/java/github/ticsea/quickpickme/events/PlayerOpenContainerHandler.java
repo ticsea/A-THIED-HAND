@@ -18,7 +18,7 @@ public class PlayerOpenContainerHandler {
         if (!shouldHandleEvent(player)) return;
 
         for (SupportedMod supported : SupportedMod.values()) {
-            if (supported.matchesClass(menu)) {
+            if (supported.matchesSupportedMod(menu)) {
                 if (!supported.isEnabled()) return; // 已匹配但未启用，跳过
                 transferMatchingItems(menu, player);
                 return;

@@ -1,6 +1,7 @@
 package github.ticsea.quickpickme;
 
-import github.ticsea.quickpickme.util.ConfigHelper;
+import github.ticsea.quickpickme.util.ConfigHelper.SophisticatedBackpacks;
+import github.ticsea.quickpickme.util.ConfigHelper.TouhouLittleMaid;
 import java.util.function.Supplier;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 
@@ -11,11 +12,11 @@ public enum SupportedMod {
     ),
     BACKPACK(
             "net.p3pp3rf1y.sophisticatedbackpacks.common.gui.BackpackContainer",
-            () -> ConfigHelper.SophisticatedBackpacks.isBackpackSupportEnabled()
+            SophisticatedBackpacks::isBackpackSupportEnabled
     ),
     TOUHOU_LITTLE_MAID(
             "com.github.tartaricacid.touhoulittlemaid.inventory.container.MaidMainContainer",
-            () -> ConfigHelper.TouhouLittleMaid.isLittleMaidSupportEnabled()
+            TouhouLittleMaid::isLittleMaidSupportEnabled
     );
 
     private final String className;
@@ -26,7 +27,7 @@ public enum SupportedMod {
         this.isEnabled = isEnabled;
     }
 
-    public boolean matchesClass(AbstractContainerMenu menu) {
+    public boolean matchesSupportedMod(AbstractContainerMenu menu) {
         try {
             Class<?> clazz = Class.forName(className);
             return clazz.isInstance(menu);

@@ -53,12 +53,12 @@ public class ModConfigScreen extends Screen {
     private Button buildToggleButton(
             int x, int y,
             String key,
-            java.util.function.BooleanSupplier getter,
+            java.util.function.BooleanSupplier stateGetter,
             Runnable toggler
     ) {
-        return Button.builder(getToggleMessage(key, getter.getAsBoolean()), b -> {
+        return Button.builder(getToggleMessage(key, stateGetter.getAsBoolean()), b -> {
                     toggler.run();
-                    b.setMessage(getToggleMessage(key, getter.getAsBoolean()));
+                    b.setMessage(getToggleMessage(key, stateGetter.getAsBoolean()));
                 })
                 .pos(x - 100, y)
                 .size(200, 20)
