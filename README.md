@@ -1,5 +1,5 @@
 <div aligh="center">
-  <img width="300" alt="quicipickme log" src="https://github.com/ticsea/quickpickme/blob/main/src/main/resources/assets/quickpick.png" />
+  <img width="300" alt="quicipickme log" src="https://github.com/ticsea/quickpickme/blob/main/src/main/resources/assets/quickpickme.png" />
    <h1 style="margin-top: 0">Quick Pick Me</h1>
   <p>QuickPick streamlines your Minecraft gameplay by reducing the hassle of manually transferring items between containers and your inventory. Whenever you open any container, the mod scans for items that match what you already carry and quickly moves them into your inventory. This saves you time and keeps your items organized, so you can focus more on adventuring and crafting.</p>
 
