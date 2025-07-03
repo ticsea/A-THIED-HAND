@@ -12,13 +12,13 @@
 <details open>
 <summary>中文</summary>
  QuickPickme 
- ——懒人体验优化，解放大脑。
+ ——懒人体验优化，自动拾取匹配的宝箱战利品。
 
 #### **🔹 产品定位**  
- QuickPickMe 是一款专注于 **优化探索体验**的mod，通过减少在容器和背包之间**手动**转移物品的麻烦，简化了你的 Minecraft 游戏体验。每当你打开任何容器时，该模组会扫描与你已携带物品匹配的物品，并迅速将它们转移到你的背包中。这能为你节省时间并保持物品的整洁，让你能更专注于冒险与战斗。  
+ QuickPickMe 是一款专注于 **优化探索体验**的mod，当玩家探索时，时常面对大量的宝箱战利品，一个个去筛选拾取过于劳神伤体。本mod由此诞生。
 
 #### **🔹 核心功能**  
-- **宝箱探索优化**：与宝箱交互会自动地拾取匹配的战利品。
+- **宝箱交互优化**：与宝箱交互会自动地拾取已存在于玩家背包内的物品。
 
 #### **🔹 按键**
 - 使用 <kbd>H</kbd>控制mod启用与关闭
@@ -30,10 +30,10 @@
 <details>
 <summary>EN</summary>
  QuickPickMe 
-  --Optimize the lazy experience and free the brain
+  --Optimize the lazy experience,automatically trasfer Treasure Chest Rewards.
 
 #### **🔹 Product Positioning**  
-QuickPick is a mod focused on **enhancing the exploration experience**, QuickPick streamlines your Minecraft gameplay by reducing the hassle of manually transferring items between containers and your inventory. Whenever you open any container, the mod scans for items that match what you already carry and quickly moves them into your inventory. This saves you time and keeps your items organized, so you can focus more on adventuring and fighting. 
+QuickPick is a mod focused on **enhancing the exploration experience**, When players explore, they often face a large number of treasure chest rewards. Screening and collecting them one by one is too exhausting and physically taxing. This mod was born from this.
 
 #### **🔹 Core Features**  
 - **Optimize Treasure Chest Exploration**: When opening a chest, items already present in your inventory will be automatically transferred.
