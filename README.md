@@ -1,7 +1,7 @@
 <div aligh="center">
   <img width="300" alt="quicipickme log" src="https://github.com/ticsea/quickpickme/blob/main/src/main/resources/assets/quickpick.png" />
    <h1 style="margin-top: 0">Quick Pick Me</h1>
-  <p>QuickPick streamlines your Minecraft gameplay by reducing the hassle of manually transferring items between containers and your inventory. Whenever you open any container, the mod scans for items that match what you already carry and quickly moves them into your inventory. This saves you time and keeps your items organized, so you can focus more on adventuring and crafting.</p>
+  <p>When opening a chest, items already present in your inventory will be automatically transferred.</p>
 
 [![CurseForge Downloads](https://img.shields.io/curseforge/dt/1288509?logo=CurseForge)](https://www.curseforge.com/minecraft/mc-mods/quickpickme)
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/quickpickme?logo=Modrinth)](https://modrinth.com/mod/quickpickme)
