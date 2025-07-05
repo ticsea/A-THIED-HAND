@@ -11,37 +11,40 @@
 ---
 <details open>
 <summary>中文</summary>
- QuickPickme 
- ——懒人体验优化，自动拾取匹配的宝箱战利品。
+ 速拾宝 
+ ——懒人体验优化，智能自动拾取。
 
 #### **🔹 产品定位**  
- QuickPickMe 是一款专注于 **优化探索体验**的mod，当玩家探索时，时常面对大量的宝箱战利品，一个个去筛选拾取过于劳神伤体。本mod由此诞生。
+速拾宝 一款专注于优化 ***探索体验*** 的mod。
+ 还在为开启宝箱后繁琐的物品筛选而烦恼？一个个挑选战利品既耗时又累心，探索的乐趣大打折扣！速拾宝 专为懒人玩家与探索爱好者打造，一键解决拾取难题，让冒险更轻松、更畅快！
 
 #### **🔹 核心功能**  
-- **宝箱交互优化**：与宝箱交互会自动地拾取已存在于玩家背包内的物品。
+- **智能自动拾取**：当你打开宝箱，速拾宝将自动识别并拾取那些你背包中已有的物品。无需手动挑选，告别重复操作，瞬间完成战利品收纳，节省宝贵时间，让探索节奏更流畅！
 
 #### **🔹 按键**
-- 使用 <kbd>H</kbd>控制mod启用与关闭
+- <kbd>H</kbd>：快速启用或关闭速拾宝功能。
 
-#### **🔹 配置**
-可配置是否适用于<kbd>车万女仆</kbd>，<kbd>精致背包</kbd>
+#### **🔹 单独配置**
+支持个性化设置，可自由选择是否适配 <kbd>车万女仆</kbd>、<kbd>精致背包</kbd> 等特色模组
 </details>
 
 <details>
 <summary>EN</summary>
  QuickPickMe 
-  --Optimize the lazy experience,automatically trasfer Treasure Chest Rewards.
+  -- Lazy Experience Optimization, Intelligent Auto-Pickup
 
 #### **🔹 Product Positioning**  
-QuickPick is a mod focused on **enhancing the exploration experience**, When players explore, they often face a large number of treasure chest rewards. Screening and collecting them one by one is too exhausting and physically taxing. This mod was born from this.
+QuickPickMe is a mod focused on ***optimizing exploration experience***. Tired of the tedious item filtering after opening treasure chests? Picking up loot one by one is time-consuming and exhausting, which greatly reduces the fun of exploration! SuShiBao is specially designed for lazy players and exploration enthusiasts, solving the picking problem with one click to make adventures easier and more enjoyable!
 
 #### **🔹 Core Features**  
-- **Optimize Treasure Chest Exploration**: When opening a chest, items already present in your inventory will be automatically transferred.
+- **Intelligent Auto-Pickup**: When you open a treasure chest, QuickPickMe will automatically identify and pick up the items that already exist in your backpack. No need for manual selection, say goodbye to repetitive operations, complete loot storage in an instant, save precious time, and make the exploration rhythm smoother!
+
 
 #### **🔹 Keybind**  
-- Use <kbd>H</kbd> to toggle the mod on and off.
+- <kbd>H</kbd>: Quickly enable or disable mod.
 
-#### **🔹 Configuration**  
-Configurable to support <kbd>Touhou Little Maid</kbd> and <kbd>Sophisticated Backpacks</kbd>.
+#### **🔹 Independent Configuration**  
+Supports personalized settings, allowing you to freely choose whether to adapt to featured mods such as <kbd>TouHou Little Maid</kbd> and <kbd>Sophisticated Backpacks Backpack</kbd>.
+
 
 </details>
