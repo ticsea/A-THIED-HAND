@@ -34,10 +34,10 @@
   -- Lazy Experience Optimization, Intelligent Auto-Pickup
 
 #### **🔹 Product Positioning**  
-QuickPickMe is a mod focused on ***optimizing exploration experience***. Tired of the tedious item filtering after opening treasure chests? Picking up loot one by one is time-consuming and exhausting, which greatly reduces the fun of exploration! SuShiBao is specially designed for lazy players and exploration enthusiasts, solving the picking problem with one click to make adventures easier and more enjoyable!
+QuickPickMe is a mod focused on ***optimizing exploration experience***. Tired of the tedious item filtering after opening treasure chests? Picking up loot one by one is time-consuming and exhausting, which greatly reduces the fun of exploration! QuickPickMe is specially designed for lazy players and exploration enthusiasts, solving the picking problem with one click to make adventures easier and more enjoyable!
 
 #### **🔹 Core Features**  
-- **Intelligent Auto-Pickup**: When you open a treasure chest, QuickPickMe will automatically identify and pick up the items that already exist in your backpack. No need for manual selection, say goodbye to repetitive operations, complete loot storage in an instant, save precious time, and make the exploration rhythm smoother!
+- **Intelligent Auto-Pickup**: When interacting with a treasure chest, QuickPickMe scans the chest's contents and only transfers items that already exist in your inventory to your backpack. This targeted transfer system skips manual item sorting, automatically collecting duplicates while leaving new items for manual selection.
 
 
 #### **🔹 Keybind**  
@@ -45,6 +45,5 @@ QuickPickMe is a mod focused on ***optimizing exploration experience***. Tired o
 
 #### **🔹 Independent Configuration**  
 Supports personalized settings, allowing you to freely choose whether to adapt to featured mods such as <kbd>TouHou Little Maid</kbd> and <kbd>Sophisticated Backpacks Backpack</kbd>.
-
 
 </details>
