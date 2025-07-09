@@ -7,5 +7,6 @@
   "gui.quickpickme.state.on": "启用",
   "gui.quickpickme.state.off": "关闭",
   "quickpickme.toggle.on": "自动拾取：开启",
-  "quickpickme.toggle.off": "自动拾取：关闭"
+  "quickpickme.toggle.off": "自动拾取：关闭",
+  "gui.quickpickme.displayclassname": "显示容器类名"
 }

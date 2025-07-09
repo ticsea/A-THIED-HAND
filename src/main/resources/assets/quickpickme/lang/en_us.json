@@ -7,5 +7,6 @@
   "gui.quickpickme.state.on": "ON",
   "gui.quickpickme.state.off": "OFF",
   "quickpickme.toggle.on": "Quick Pick: ON",
-  "quickpickme.toggle.off": "Quick Pick: OFF"
+  "quickpickme.toggle.off": "Quick Pick: OFF",
+  "gui.quickpickme.displayclassname": "displayClassName"
 }

@@ -1,7 +1,7 @@
 package github.ticsea.quickpickme.events;
 
 import com.mojang.blaze3d.platform.Window;
-import github.ticsea.quickpickme.util.ConfigHelper;
+import github.ticsea.quickpickme.config.ModConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
@@ -29,7 +29,7 @@ public class KeybindHandler {
         if (event.phase!=TickEvent.Phase.END) return;
 
         if (MOD_TOGGLE_KEY.get().consumeClick()) {
-            ConfigHelper.ModQuickPickMe.toggleMod();
+            ModConfig.ENABLE_MOD.set(!ModConfig.ENABLE_MOD.get());
             Minecraft mc = Minecraft.getInstance();
 
             if (mc.level!=null) {
@@ -50,7 +50,7 @@ public class KeybindHandler {
         int messageX = screenWidth / 2 - 22;
         int messageY = screenHeight - 56;
 
-        Component message = ConfigHelper.ModQuickPickMe.isModEnabled() ? MSG_ENABLED:MSG_DISABLED;
+        Component message = ModConfig.ENABLE_MOD.get() ? MSG_ENABLED:MSG_DISABLED;
         event.getGuiGraphics().drawString(font, message, messageX, messageY, TEXT_COLOR, TEXT_SHADOW!=0);
     }
 }

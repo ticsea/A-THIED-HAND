@@ -1,18 +1,23 @@
 package github.ticsea.quickpickme.gui;
 
-import github.ticsea.quickpickme.util.ConfigHelper;
+import github.ticsea.quickpickme.compatible.SupportedModJsonProvider;
+import github.ticsea.quickpickme.config.ModConfig;
+import java.util.ArrayList;
+import java.util.List;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ModConfigScreen extends Screen {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ModConfigScreen.class);
     private final Screen parentScreen;
-
-    private Button backpackButton;
-    private Button littleMaidButton;
 
     public ModConfigScreen(Component title, Screen parent) {
         super(title);
@@ -21,33 +26,60 @@ public class ModConfigScreen extends Screen {
 
     @Override
     protected void init() {
-        int centerX = width / 2;
-        int startY = height / 2 - 40;
+        int screenWidth = width;
+        int startY = height / 2 - 80;
+        int buttonWidth = 150;
+        int buttonHeight = 20;
+        int horizontalSpacing = 5;
+        int verticalSpacing = 5;
+        int buttonsPerRow = 3;
 
         // Back Button
         this.addRenderableWidget(Button.builder(Component.translatable("gui.quickpickme.back"), b -> this.onClose())
-                .pos(centerX - 100, height - 30)
-                .size(200, 20)
+                .pos(width / 2 - 75, height - 30)
+                .size(150, 20)
                 .build());
 
-        // Backpack Toggle
-        backpackButton = buildToggleButton(
-                centerX, startY + 30,
-                "gui.quickpickme.backpack",
-                ConfigHelper.SophisticatedBackpacks::isBackpackSupportEnabled,
-                ConfigHelper.SophisticatedBackpacks::toggleBackpackSupport
-        );
-        this.addRenderableWidget(backpackButton);
+        Button displayButton = buildToggleButton(
+                width / 2 - 225,
+                height - 30,
+                Language.getInstance().getOrDefault("gui.quickpickme.displayclassname"),
+                ModConfig.DISPLAYCLASSNAME::get,
+                () -> ModConfig.DISPLAYCLASSNAME.set(!ModConfig.DISPLAYCLASSNAME.get()));
+        this.addRenderableWidget(displayButton);
 
+        generateJsonButton(buttonsPerRow, screenWidth, buttonWidth, horizontalSpacing, startY, buttonHeight, verticalSpacing);
+    }
 
-        // Little Maid Toggle
-        littleMaidButton = buildToggleButton(
-                centerX, startY,
-                "gui.quickpickme.touhou_little_maid",
-                ConfigHelper.TouhouLittleMaid::isLittleMaidSupportEnabled,
-                ConfigHelper.TouhouLittleMaid::toggleLittleMaidSupport
-        );
-        this.addRenderableWidget(littleMaidButton);
+    private void generateJsonButton(int buttonsPerRow, int screenWidth, int buttonWidth, int horizontalSpacing, int startY, int buttonHeight, int verticalSpacing) {
+        List<SupportedModJsonProvider> buttonConfigs = SupportedModJsonProvider.getSupportedMods();
+        for (int i = 0; i < buttonConfigs.size(); i++) {
+            SupportedModJsonProvider config = buttonConfigs.get(i);
+            int row = i / buttonsPerRow;
+            int col = i % buttonsPerRow;
+            int x = screenWidth - (col + 1) * (buttonWidth + horizontalSpacing);
+            int y = startY + row * (buttonHeight + verticalSpacing);
+            Button button = buildToggleButton(
+                    x, y,
+                    config.getId(),
+                    () -> {
+                        BooleanValue value = ModConfig.idToBooleanValueMap.get(config.getId());
+                        if (value==null) {
+                            LOGGER.error("BooleanValue is null for key: {}", config.getId());
+                        }
+                        return value!=null ? value.get():false;
+                    },
+                    () -> {
+                        BooleanValue value = ModConfig.idToBooleanValueMap.get(config.getId());
+                        if (value!=null) {
+                            value.set(!value.get());
+                        } else {
+                            LOGGER.error("BooleanValue is null for key: {}", config.getId());
+                        }
+                    }
+            );
+            this.addRenderableWidget(button);
+        }
     }
 
     private Button buildToggleButton(
@@ -59,9 +91,10 @@ public class ModConfigScreen extends Screen {
         return Button.builder(getToggleMessage(key, stateGetter.getAsBoolean()), b -> {
                     toggler.run();
                     b.setMessage(getToggleMessage(key, stateGetter.getAsBoolean()));
+                    LOGGER.info("Button toggled. New state: {}", stateGetter.getAsBoolean());
                 })
-                .pos(x - 100, y)
-                .size(200, 20)
+                .pos(x, y)
+                .size(150, 20)
                 .build();
     }
 

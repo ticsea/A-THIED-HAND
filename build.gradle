@@ -153,6 +153,8 @@ dependencies {
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
+    implementation 'com.google.code.gson:gson:2.10.1'
+
     implementation fg.deobf("curse.maven:touhoulittlemaid-355044:6657436")
     implementation fg.deobf("curse.maven:backpakc-422301:6587116")
     implementation fg.deobf("curse.maven:backpackcore-618298:6596375")
