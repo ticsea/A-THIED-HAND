@@ -1,4 +1,4 @@
-package github.ticsea.quickpickme;
+package github.ticsea.athirdhand.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
@@ -12,7 +12,7 @@ public class ModKeybind {
 
     static {
         MOD_TOGGLE_KEY = keyFactory(
-                "key.quickpickme.toggle_mod",
+                "key.athirdhand.switch",
                 GLFW.GLFW_KEY_H
         );
     }
@@ -28,7 +28,7 @@ public class ModKeybind {
                         KeyConflictContext.IN_GAME,
                         InputConstants.Type.KEYSYM,
                         key,
-                        "key.categories.quickpickme"
+                        "key.categories.athirdhand"
                 ));
     }
 }

@@ -1,23 +1,19 @@
-package github.ticsea.quickpickme.events;
+package github.ticsea.athirdhand.events;
+
+import static github.ticsea.athirdhand.client.ModKeybind.MOD_TOGGLE_KEY;
 
 import com.mojang.blaze3d.platform.Window;
-import github.ticsea.quickpickme.config.ModConfig;
+import github.ticsea.athirdhand.config.ModConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.fml.common.Mod;
 
-import static github.ticsea.quickpickme.QuickPickMe.MODID;
-import static github.ticsea.quickpickme.ModKeybind.MOD_TOGGLE_KEY;
-
-@Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class KeybindHandler {
 
-    private static final Component MSG_ENABLED = Component.translatable("quickpickme.toggle.on");
-    private static final Component MSG_DISABLED = Component.translatable("quickpickme.toggle.off");
+    private static final Component MSG_ENABLED = Component.translatable("athirdhand.state.on");
+    private static final Component MSG_DISABLED = Component.translatable("athirdhand.state.off");
 
     private static final int DISPLAY_DURATION_TICKS = 60;
     private static final int TEXT_COLOR = 0xFFFFFF;
@@ -28,8 +24,8 @@ public class KeybindHandler {
     public static void onKeyInput(TickEvent.ClientTickEvent event) {
         if (event.phase!=TickEvent.Phase.END) return;
 
-        if (MOD_TOGGLE_KEY.get().consumeClick()) {
-            ModConfig.ENABLE_MOD.set(!ModConfig.ENABLE_MOD.get());
+        while (MOD_TOGGLE_KEY.get().consumeClick()) {
+            ModConfig.HAND.set(!ModConfig.HAND.get());
             Minecraft mc = Minecraft.getInstance();
 
             if (mc.level!=null) {
@@ -50,7 +46,7 @@ public class KeybindHandler {
         int messageX = screenWidth / 2 - 22;
         int messageY = screenHeight - 56;
 
-        Component message = ModConfig.ENABLE_MOD.get() ? MSG_ENABLED:MSG_DISABLED;
+        Component message = ModConfig.HAND.get() ? MSG_ENABLED:MSG_DISABLED;
         event.getGuiGraphics().drawString(font, message, messageX, messageY, TEXT_COLOR, TEXT_SHADOW!=0);
     }
 }
