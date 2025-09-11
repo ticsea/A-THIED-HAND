@@ -1,5 +1,5 @@
 <div aligh="center">
-  <img width="300" alt="quicipickme log" src="https://github.com/ticsea/quickpickme/blob/main/src/main/resources/assets/quickpick.png" />
+  <img width="300" alt="quicipickme log" src="https://github.com/ticsea/quickpickme/blob/main/src/main/resources/assets/quickpickme.png" />
    <h1 style="margin-top: 0">Quick Pick Me</h1>
   <p>When opening a chest, items already present in your inventory will be automatically transferred.</p>
 
