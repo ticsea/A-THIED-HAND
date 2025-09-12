@@ -5,8 +5,8 @@ package github.ticsea.athirdhand;
 
 import static github.ticsea.athirdhand.config.ModConfig.CONFIG;
 
-import github.ticsea.athirdhand.client.ModKeybind;
-import github.ticsea.athirdhand.events.KeybindHandler;
+import github.ticsea.athirdhand.client.ModKeyBinding;
+import github.ticsea.athirdhand.events.KeyBindingHandler;
 import github.ticsea.athirdhand.events.PlayerOpenContainerHandler;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,9 +26,9 @@ public class AThirdHand {
         IEventBus forgeEvenBus = MinecraftForge.EVENT_BUS;
 
         if (FMLEnvironment.dist==Dist.CLIENT) {
-            modEventBus.addListener(ModKeybind::registerKeybind);
-            forgeEvenBus.addListener(KeybindHandler::onKeyInput);
-            forgeEvenBus.addListener(KeybindHandler::renderToggleMessage);
+            modEventBus.addListener(ModKeyBinding::registerKeybind);
+            forgeEvenBus.addListener(KeyBindingHandler::onKeyPress);
+            forgeEvenBus.addListener(KeyBindingHandler::renderToggleMessage);
         }
 
         context.registerConfig(ModConfig.Type.CLIENT, CONFIG);
