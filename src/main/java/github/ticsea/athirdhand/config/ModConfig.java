@@ -5,13 +5,18 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 
 public class ModConfig {
-    public static final BooleanValue HAND;
     public static final ForgeConfigSpec CONFIG;
+
+    private static final BooleanValue SWITCH;
     private static final ForgeConfigSpec.Builder BUILDER;
+
+    public static BooleanValue getSwitch() {
+        return SWITCH;
+    }
 
     static {
         BUILDER = new ForgeConfigSpec.Builder();
-        HAND = register(
+        SWITCH = register(
                 "是否启用mod\n[true, false]",
                 "mod_toggle"
         );
