@@ -11,7 +11,7 @@
 A Mod to Solve the "Tedious Item Sorting" Problem After Opening Treasure Chests
 
 #### **🔹 Core Features**  
-- **Auto-Loot Treasure Chests**: When you open a treasure chest, SpeedLoot will automatically identify and collect the items that are already in your inventory.
+- **Auto-Loot Treasure Chests**: When you open a treasure chest,mod will automatically identify and collect the items that are already in your inventory.
 
 #### **🔹 Keybind**  
 - <kbd>H</kbd>: Quickly enable or disable mod.
