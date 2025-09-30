@@ -4,19 +4,17 @@ import com.mojang.blaze3d.platform.Window;
 import com.mojang.logging.LogUtils;
 import github.ticsea.athirdhand.client.ModKeyBinding;
 import github.ticsea.athirdhand.config.ModConfig;
-import github.ticsea.athirdhand.util.Progress;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.FrameTimer;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent.Post;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.event.TickEvent.Phase;
 import org.slf4j.Logger;
 
-public class KeyBindingHandler {
+public class KeyPressEvent {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     //    private static final Progress MSG_PROGRESS = new Progress(60000);
@@ -31,6 +29,8 @@ public class KeyBindingHandler {
 
     static final Minecraft mc = Minecraft.getInstance();
     static Font font = mc.font;
+
+    //    TODO 位置有问题
     static Window window = mc.getWindow();
     static int messageX = window.getGuiScaledWidth() / 2 - 22;
     static int messageY = window.getGuiScaledHeight() - 56;
@@ -52,7 +52,7 @@ public class KeyBindingHandler {
     }
 
     public static void renderToggleMessage(Post event) {
-        while (mc.level==null || mc.level.getGameTime() >= showMessageUntilTick) return;
+        if (mc.level==null || mc.level.getGameTime() >= showMessageUntilTick) return;
 
         Component message = SWITCH.get() ? MSG_ENABLED:MSG_DISABLED;
         event.getGuiGraphics().drawString(font, message, messageX, messageY, MSG_COLOR, MSG_SHADOW!=0);

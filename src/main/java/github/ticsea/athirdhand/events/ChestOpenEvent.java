@@ -1,9 +1,7 @@
 package github.ticsea.athirdhand.events;
 
-import github.ticsea.athirdhand.client.ModKeyBinding;
 import github.ticsea.athirdhand.config.ModConfig;
 import java.util.List;
-import net.minecraft.client.KeyMapping;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -16,8 +14,8 @@ import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PlayerOpenContainerHandler {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PlayerOpenContainerHandler.class);
+public class ChestOpenEvent {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ChestOpenEvent.class);
 
     private static final BooleanValue SWITCH = ModConfig.getSwitch();
 
